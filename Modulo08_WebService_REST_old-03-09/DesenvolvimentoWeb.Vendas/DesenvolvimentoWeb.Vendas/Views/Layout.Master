@@ -1,0 +1,185 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Layout.master.cs" Inherits="DesenvolvimentoWeb.Vendas.Views.Layout" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+
+    <script src="../Scripts/jquery-3.0.0.min.js"></script>
+    <script src="../Scripts/popper.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <asp:HyperLink ID="HyperLink1" CssClass="navbar-brand"
+            runat="server" NavigateUrl="~/Views/Home.aspx">
+            Sinqia
+        </asp:HyperLink>
+
+        <button class="navbar-toggler" type="button"
+            data-toggle="collapse" data-target="#menu"
+            aria-controls="menu" aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadastro
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <asp:HyperLink ID="HyperLink11" CssClass="dropdown-item"
+                            runat="server" NavigateUrl="~/Views/CadastroClientes.aspx">
+                        Clientes
+                        </asp:HyperLink>
+
+                        <asp:HyperLink ID="HyperLink2" CssClass="dropdown-item"
+                            runat="server" NavigateUrl="~/Views/CadastroProdutos.aspx">
+                        Produtos
+                        </asp:HyperLink>
+
+                        <asp:HyperLink ID="HyperLink3" CssClass="dropdown-item"
+                            runat="server" NavigateUrl="~/Views/CadastroUsuarios.aspx">
+                        Usuários
+                        </asp:HyperLink>
+
+                        <asp:HyperLink ID="HyperLink7" CssClass="dropdown-item"
+                            runat="server" NavigateUrl="~/Views/CadastroPedidos.aspx">
+                        Pedidos
+                        </asp:HyperLink>
+
+                        <asp:HyperLink ID="HyperLink4" CssClass="dropdown-item"
+                            runat="server" NavigateUrl="~/Views/CadastroItens.aspx">
+                        Itens de Produto
+                        </asp:HyperLink>
+                    </div>
+                </li>
+
+
+
+                <%--                <li class="nav-item">
+                    <asp:HyperLink ID="HyperLink2" CssClass="nav-link" 
+                        runat="server" NavigateUrl="~/Views/CadastroClientes.aspx">
+                        Cad. Clientes
+                    </asp:HyperLink>
+                </li>--%>
+
+                <%--                <li class="nav-item">
+                    <asp:HyperLink ID="HyperLink3" CssClass="nav-link" 
+                        runat="server" NavigateUrl="~/Views/CadastroProdutos.aspx">
+                        Cad. Produtos
+                    </asp:HyperLink>
+                </li>--%>
+
+                <%--                <li class="nav-item">
+                    <asp:HyperLink ID="HyperLink7" CssClass="nav-link" 
+                        runat="server" NavigateUrl="~/Views/CadastroUsuarios.aspx">
+                        Cad. Usuários
+                    </asp:HyperLink>
+                </li>--%>
+
+                <%--                <li class="nav-item">
+                    <asp:HyperLink ID="HyperLink4" CssClass="nav-link" 
+                        runat="server" NavigateUrl="~/Views/CadastroPedidos.aspx">
+                        Pedidos
+                    </asp:HyperLink>
+                </li>--%>
+
+                <%--                <li class="nav-item">
+                    <asp:HyperLink ID="HyperLink5" CssClass="nav-link" 
+                        runat="server" NavigateUrl="~/Views/CadastroItens.aspx">
+                        Novos Itens
+                    </asp:HyperLink>
+                </li>--%>
+
+                <li class="nav-item">
+                    <asp:HyperLink ID="HyperLink6" CssClass="nav-link"
+                        runat="server" NavigateUrl="~/Views/ListaItens.aspx">
+                        Lista de Itens
+                    </asp:HyperLink>
+                </li>
+
+                <li class="nav-item">
+                    <asp:HyperLink ID="HyperLink9" CssClass="nav-link"
+                        runat="server" NavigateUrl="~/Views/ListaItensAjax.aspx">
+                        Lista de Itens (Ajax)
+                    </asp:HyperLink>
+                </li>
+
+                <li class="nav-item">
+                    <asp:HyperLink ID="HyperLink10" CssClass="nav-link"
+                        runat="server" NavigateUrl="~/Views/EfetuarPagamento.aspx">
+                        Pagamentos
+                    </asp:HyperLink>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" 
+                        id="chamadosDropdown" 
+                        role="button" 
+                        data-toggle="dropdown" 
+                        aria-haspopup="true" 
+                        aria-expanded="false">Chamados
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="chamadosDropdown">
+                        <asp:HyperLink ID="HyperLink5" CssClass="dropdown-item"
+                            runat="server" NavigateUrl="~/Views/AbrirChamado.aspx">
+                        Abrir Chamado
+                        </asp:HyperLink>
+
+                        <asp:HyperLink ID="HyperLink12" CssClass="dropdown-item"
+                            runat="server" NavigateUrl="~/Views/ResponderChamado.aspx">
+                        Responder Chamado
+                        </asp:HyperLink>
+
+                    </div>
+                </li>
+
+            </ul>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <asp:HyperLink
+                        ID="usuarioHyperLink"
+                        CssClass="nav-link"
+                        NavigateUrl='<%# string.Format("~/Views/CadastroUsuarios.aspx?nome={0}", NomeUsuario) %>'
+                        runat="server"><%= NomeUsuario %>  </asp:HyperLink>
+                </li>
+                <li class="nav-item">
+                    <asp:HyperLink
+                        ID="HyperLink8"
+                        CssClass="nav-link"
+                        NavigateUrl="~/Views/Login.aspx"
+                        runat="server">Logout</asp:HyperLink>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div>
+
+
+            <asp:ContentPlaceHolder ID="conteudo" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+        </div>
+    </form>
+
+
+
+</body>
+</html>

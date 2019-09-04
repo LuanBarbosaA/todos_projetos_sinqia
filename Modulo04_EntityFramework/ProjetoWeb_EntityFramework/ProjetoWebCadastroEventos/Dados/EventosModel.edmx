@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_EVENTOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBConvidados">
+          <Key>
+            <PropertyRef Name="Cpf" />
+          </Key>
+          <Property Name="Cpf" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="IdEvento" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBEventos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descricao" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Responsavel" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Data" Type="datetime" Nullable="false" />
+          <Property Name="Preco" Type="float" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__TBConvida__IdEve__1273C1CD">
+          <End Role="TBEventos" Type="Self.TBEventos" Multiplicity="1" />
+          <End Role="TBConvidados" Type="Self.TBConvidados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBEventos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBConvidados">
+              <PropertyRef Name="IdEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="pr_incluir_convidado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="cpf" Type="varchar" Mode="In" />
+          <Parameter Name="idevento" Type="int" Mode="In" />
+          <Parameter Name="nome" Type="varchar" Mode="In" />
+          <Parameter Name="telefone" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="status" Type="int" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="DB_EVENTOSModelStoreContainer">
+          <EntitySet Name="TBConvidados" EntityType="Self.TBConvidados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBEventos" EntityType="Self.TBEventos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__TBConvida__IdEve__1273C1CD" Association="Self.FK__TBConvida__IdEve__1273C1CD">
+            <End Role="TBEventos" EntitySet="TBEventos" />
+            <End Role="TBConvidados" EntitySet="TBConvidados" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_EVENTOSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Convidado">
+          <Key>
+            <PropertyRef Name="Cpf" />
+          </Key>
+          <Property Name="Cpf" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdEvento" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EventoInfo" Relationship="Self.FK__TBConvida__IdEve__1273C1CD" FromRole="TBConvidados" ToRole="TBEventos" />
+        </EntityType>
+        <EntityType Name="Evento">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Responsavel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Preco" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Convidados" Relationship="Self.FK__TBConvida__IdEve__1273C1CD" FromRole="TBEventos" ToRole="TBConvidados" />
+        </EntityType>
+        <Association Name="FK__TBConvida__IdEve__1273C1CD">
+          <End Role="TBEventos" Type="DB_EVENTOSModel.Evento" Multiplicity="1" />
+          <End Role="TBConvidados" Type="DB_EVENTOSModel.Convidado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBEventos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TBConvidados">
+              <PropertyRef Name="IdEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EventosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Convidados" EntityType="DB_EVENTOSModel.Convidado" />
+          <EntitySet Name="Eventos" EntityType="DB_EVENTOSModel.Evento" />
+          <AssociationSet Name="FK__TBConvida__IdEve__1273C1CD" Association="Self.FK__TBConvida__IdEve__1273C1CD">
+            <End Role="TBEventos" EntitySet="Eventos" />
+            <End Role="TBConvidados" EntitySet="Convidados" />
+          </AssociationSet>
+          <FunctionImport Name="pr_incluir_convidado">
+            <Parameter Name="cpf" Mode="In" Type="String" />
+            <Parameter Name="idevento" Mode="In" Type="Int32" />
+            <Parameter Name="nome" Mode="In" Type="String" />
+            <Parameter Name="telefone" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="status" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_EVENTOSModelStoreContainer" CdmEntityContainer="EventosEntities">
+          <EntitySetMapping Name="Convidados">
+            <EntityTypeMapping TypeName="DB_EVENTOSModel.Convidado">
+              <MappingFragment StoreEntitySet="TBConvidados">
+                <ScalarProperty Name="Cpf" ColumnName="Cpf" />
+                <ScalarProperty Name="IdEvento" ColumnName="IdEvento" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eventos">
+            <EntityTypeMapping TypeName="DB_EVENTOSModel.Evento">
+              <MappingFragment StoreEntitySet="TBEventos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+                <ScalarProperty Name="Responsavel" ColumnName="Responsavel" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Preco" ColumnName="Preco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="pr_incluir_convidado" FunctionName="DB_EVENTOSModel.Store.pr_incluir_convidado" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

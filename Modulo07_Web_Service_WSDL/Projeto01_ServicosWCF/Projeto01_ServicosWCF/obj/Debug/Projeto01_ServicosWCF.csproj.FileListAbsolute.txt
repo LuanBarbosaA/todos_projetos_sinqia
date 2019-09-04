@@ -1,0 +1,7 @@
+C:\Users\sinqia\source\repos\Projeto01_ServicosWCF\Projeto01_ServicosWCF\bin\Projeto01_ServicosWCF.dll.config
+C:\Users\sinqia\source\repos\Projeto01_ServicosWCF\Projeto01_ServicosWCF\bin\Projeto01_ServicosWCF.dll
+C:\Users\sinqia\source\repos\Projeto01_ServicosWCF\Projeto01_ServicosWCF\bin\Projeto01_ServicosWCF.pdb
+C:\Users\sinqia\source\repos\Projeto01_ServicosWCF\Projeto01_ServicosWCF\obj\Debug\Projeto01_ServicosWCF.csprojAssemblyReference.cache
+C:\Users\sinqia\source\repos\Projeto01_ServicosWCF\Projeto01_ServicosWCF\obj\Debug\Projeto01_ServicosWCF.csproj.CoreCompileInputs.cache
+C:\Users\sinqia\source\repos\Projeto01_ServicosWCF\Projeto01_ServicosWCF\obj\Debug\Projeto01_ServicosWCF.dll
+C:\Users\sinqia\source\repos\Projeto01_ServicosWCF\Projeto01_ServicosWCF\obj\Debug\Projeto01_ServicosWCF.pdb

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Projeto02_WCFPagamentos.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Projeto02_WCFPagamentos.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCartaoContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CartaoContract" nillable="true" type="tns:CartaoContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCartaoContract" nillable="true" type="tns:ArrayOfCartaoContract" />
+  <xs:complexType name="CartaoContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Limite" type="xs:double" />
+      <xs:element minOccurs="0" name="NumeroCartao" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CartaoContract" nillable="true" type="tns:CartaoContract" />
+  <xs:complexType name="PagamentoContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="NumeroCartao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumeroPedido" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Valor" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagamentoContract" nillable="true" type="tns:PagamentoContract" />
+  <xs:complexType name="ArrayOfPagamentoContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PagamentoContract" nillable="true" type="tns:PagamentoContract" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPagamentoContract" nillable="true" type="tns:ArrayOfPagamentoContract" />
+</xs:schema>

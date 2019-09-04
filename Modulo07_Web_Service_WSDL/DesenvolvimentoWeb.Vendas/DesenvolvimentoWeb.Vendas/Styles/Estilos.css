@@ -1,0 +1,37 @@
+﻿* {
+    font-family: 'Roboto', sans-serif;
+}
+body {
+
+}
+h1, h2{
+    text-align: center;
+}
+.cabecalho {
+    font-family: 'Lexend Tera', sans-serif;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgb(245, 245, 220);
+}
+.conteudo{
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+.rodape{
+    position: fixed;
+    text-align: center;
+    color: white;
+    background-color:gray;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.center{
+    text-align: center;
+}
+li:nth-child(2n){
+    background: gray;
+}

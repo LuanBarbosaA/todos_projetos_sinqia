@@ -1,0 +1,7 @@
+.vs/
+packages/
+*.zip
+bin/
+Data/
+*.mdf
+*.ldf

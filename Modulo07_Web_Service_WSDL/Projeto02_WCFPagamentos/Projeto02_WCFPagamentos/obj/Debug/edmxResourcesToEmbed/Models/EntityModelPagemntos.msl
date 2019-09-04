@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PagamentosModelStoreContainer" CdmEntityContainer="PagamentosEntities">
+    <EntitySetMapping Name="Cartoes">
+      <EntityTypeMapping TypeName="PagamentosModel.Cartao">
+        <MappingFragment StoreEntitySet="TBCartoes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumeroCartao" ColumnName="NumeroCartao" />
+          <ScalarProperty Name="Limite" ColumnName="Limite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pagamentos">
+      <EntityTypeMapping TypeName="PagamentosModel.Pagamento">
+        <MappingFragment StoreEntitySet="TBPagamentos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumeroCartao" ColumnName="NumeroCartao" />
+          <ScalarProperty Name="NumeroPedido" ColumnName="NumeroPedido" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

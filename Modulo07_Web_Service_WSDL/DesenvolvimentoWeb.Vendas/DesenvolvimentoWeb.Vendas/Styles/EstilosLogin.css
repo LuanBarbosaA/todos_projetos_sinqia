@@ -1,0 +1,10 @@
+﻿body {
+}
+#cabecalho{
+    display: inline;
+}
+@media screen and (min-width: 768px){
+    #cabecalho{
+        display: none;
+    }
+}

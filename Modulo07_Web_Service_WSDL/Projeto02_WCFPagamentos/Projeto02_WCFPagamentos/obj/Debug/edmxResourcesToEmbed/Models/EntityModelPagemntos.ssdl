@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PagamentosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBCartoes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroCartao" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Limite" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TBPagamentos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroCartao" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="NumeroPedido" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Valor" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="PagamentosModelStoreContainer">
+    <EntitySet Name="TBCartoes" EntityType="Self.TBCartoes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBPagamentos" EntityType="Self.TBPagamentos" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
